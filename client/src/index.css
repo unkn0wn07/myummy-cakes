@@ -1,0 +1,672 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&family=Great+Vibes&display=swap');
+
+/* ===== FONT DISPLAY SWAP OVERRIDES ===== */
+/* Ensures text remains visible during webfont load (avoids FOIT) */
+@font-face {
+  font-family: 'Playfair Display';
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Great Vibes';
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===================== CSS CUSTOM PROPERTIES ===================== */
+:root {
+  --color-rose: #E8C4B8;
+  --color-mocha: #3B1F14;
+  --color-cream: #FDF6EE;
+  --color-gold: #C9A84C;
+  --color-gold-light: #f0d98a;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-accent: 'Great Vibes', cursive;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-card: 0 4px 20px rgba(59, 31, 20, 0.08);
+  --shadow-hover: 0 12px 40px rgba(59, 31, 20, 0.15);
+}
+
+/* ===================== BASE STYLES ===================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-cream);
+  color: var(--color-mocha);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ===================== TYPOGRAPHY ===================== */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-mocha);
+}
+
+/* ===================== SCROLLBAR ===================== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-rose);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C9A84C;
+}
+
+/* ===================== SELECTION ===================== */
+::selection {
+  background: rgba(201, 168, 76, 0.3);
+  color: var(--color-mocha);
+}
+
+/* ===================== FOCUS RINGS ===================== */
+*:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ===================== GRAIN TEXTURE OVERLAY ===================== */
+.grain-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.4;
+}
+
+/* ===================== SVG WAVE DIVIDER ===================== */
+.wave-divider {
+  overflow: hidden;
+  line-height: 0;
+}
+.wave-divider svg {
+  display: block;
+  width: 100%;
+}
+
+/* ===================== CARD HOVER EFFECTS ===================== */
+.card-hover {
+  transition: var(--transition-smooth);
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ===================== IMAGE ZOOM ===================== */
+.img-zoom {
+  overflow: hidden;
+}
+.img-zoom img {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.img-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* ===================== BUTTON BASE ===================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: var(--transition-smooth);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--color-mocha);
+  color: var(--color-cream);
+  padding: 0.75rem 2rem;
+}
+.btn-primary:hover:not(:disabled) {
+  background: #5a3020;
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(59, 31, 20, 0.3);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, var(--color-gold), #e8c56a);
+  color: var(--color-mocha);
+  padding: 0.75rem 2rem;
+  box-shadow: 0 4px 15px rgba(201, 168, 76, 0.4);
+}
+.btn-gold:hover:not(:disabled) {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(201, 168, 76, 0.5);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-mocha);
+  padding: 0.7rem 1.9rem;
+  border: 2px solid var(--color-mocha);
+}
+.btn-outline:hover:not(:disabled) {
+  background: var(--color-mocha);
+  color: var(--color-cream);
+  transform: scale(1.02);
+}
+
+.btn-rose {
+  background: var(--color-rose);
+  color: var(--color-mocha);
+  padding: 0.75rem 2rem;
+}
+.btn-rose:hover:not(:disabled) {
+  background: #d4957e;
+  transform: scale(1.02);
+}
+
+/* ===================== BADGE ===================== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.badge-gold {
+  background: linear-gradient(135deg, var(--color-gold), #e8c56a);
+  color: var(--color-mocha);
+}
+.badge-rose {
+  background: var(--color-rose);
+  color: var(--color-mocha);
+}
+.badge-mocha {
+  background: var(--color-mocha);
+  color: var(--color-cream);
+}
+.badge-green {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+/* ===================== SKELETON LOADING ===================== */
+.skeleton {
+  background: linear-gradient(90deg, #f0e4d9 25%, #fdf0e7 50%, #f0e4d9 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+  border-radius: 8px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+    background: #f0e4d9;
+  }
+}
+
+/* ===================== FORM STYLES ===================== */
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e8d5c8;
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  background: white;
+  color: var(--color-mocha);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+.form-input:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.15);
+}
+.form-input.error {
+  border-color: #ef4444;
+}
+.form-label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--color-mocha);
+  margin-bottom: 0.35rem;
+}
+.form-error {
+  font-size: 0.8rem;
+  color: #ef4444;
+  margin-top: 0.25rem;
+}
+
+/* ===================== SECTION SPACING ===================== */
+.section-padding {
+  padding: 5rem 0;
+}
+.section-padding-sm {
+  padding: 3rem 0;
+}
+
+/* ===================== CONTAINER ===================== */
+.container-custom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ===================== ACCENT SCRIPT TEXT ===================== */
+.accent-script {
+  font-family: var(--font-accent);
+  color: var(--color-gold);
+}
+
+/* ===================== STAR RATING ===================== */
+.star-filled { color: var(--color-gold); }
+.star-empty { color: #e0d0c0; }
+
+/* ===================== CART BADGE ===================== */
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--color-gold);
+  color: var(--color-mocha);
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===================== STICKY HEADER STATES ===================== */
+.header-transparent {
+  background: transparent;
+  backdrop-filter: none;
+}
+.header-solid {
+  background: rgba(253, 246, 238, 0.97);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 2px 20px rgba(59, 31, 20, 0.08);
+}
+
+/* ===================== INSTAGRAM GRID ===================== */
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+@media (min-width: 768px) {
+  .insta-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* ===================== STEP WIZARD ===================== */
+.step-active {
+  background: var(--color-mocha);
+  color: var(--color-cream);
+  border-color: var(--color-mocha);
+}
+.step-done {
+  background: var(--color-gold);
+  color: var(--color-mocha);
+  border-color: var(--color-gold);
+}
+.step-inactive {
+  background: white;
+  color: #b0957e;
+  border-color: #e8d5c8;
+}
+
+/* ===================== MOBILE NAV OVERLAY ===================== */
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(59, 31, 20, 0.6);
+  z-index: 40;
+  backdrop-filter: blur(4px);
+}
+
+/* ===================== PRODUCT CARD QUICK VIEW OVERLAY ===================== */
+.quick-view-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(59, 31, 20, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.group:hover .quick-view-overlay {
+  opacity: 1;
+}
+
+/* ===================== CONFETTI ANIMATION ===================== */
+@keyframes confettiFall {
+  0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+.confetti-piece {
+  animation: confettiFall linear forwards;
+}
+
+/* ===================== SWIPER OVERRIDES ===================== */
+.swiper-pagination-bullet {
+  background: var(--color-rose) !important;
+  opacity: 0.5;
+}
+.swiper-pagination-bullet-active {
+  background: var(--color-mocha) !important;
+  opacity: 1;
+}
+.swiper-button-next, .swiper-button-prev {
+  color: var(--color-mocha) !important;
+}
+
+/* ===================== RESPONSIVE FIXES ===================== */
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 3rem 0;
+  }
+  h1 { font-size: 2.25rem; }
+  h2 { font-size: 1.75rem; }
+}
+
+/* ================================================
+   FOOTER ENHANCEMENTS
+   ================================================ */
+
+/* Container with generous desktop padding */
+.footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 5rem; /* 80px */
+}
+@media (max-width: 768px) {
+  .footer-container {
+    padding: 0 1.5rem; /* 24px */
+  }
+}
+
+/* Grid layout — brand col takes more space */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem; /* 64px */
+}
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 2.2fr 1fr 1fr 1fr;
+    gap: 5rem; /* 80px — wide breathing room */
+  }
+}
+
+/* Brand column */
+.footer-brand-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Logo link */
+.footer-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  text-decoration: none;
+}
+
+/* Italic script tagline under logo */
+.footer-tagline {
+  font-family: var(--font-accent);
+  font-size: 1.2rem;
+  color: var(--color-gold);
+  opacity: 0.85;
+  margin-bottom: 0.75rem;
+}
+
+/* "Baked fresh daily" line */
+.footer-fresh-line {
+  font-size: 0.78rem;
+  color: rgba(253, 246, 238, 0.45);
+  letter-spacing: 0.04em;
+  margin-top: 1.25rem;
+  font-style: italic;
+}
+
+/* Column headings */
+.footer-col-heading {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-gold);
+  margin-bottom: 1.75rem; /* more space before link list */
+}
+
+/* Footer links — slide-in underline from left */
+.footer-link {
+  position: relative;
+  display: inline-block;
+  font-size: 0.875rem;
+  color: rgba(253, 246, 238, 0.6);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: color 0.25s ease;
+  padding-bottom: 1px;
+}
+.footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--color-gold);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.footer-link:hover {
+  color: var(--color-gold);
+}
+.footer-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Social icon — outlined circle, hover fills gold */
+.footer-social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  border: 1.5px solid rgba(253, 246, 238, 0.3);
+  color: rgba(253, 246, 238, 0.7);
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.footer-social-icon:hover {
+  background: var(--color-gold);
+  color: var(--color-mocha);
+  border-color: var(--color-gold);
+  box-shadow: 0 4px 14px rgba(201, 168, 76, 0.45);
+}
+
+/* Bottom bar with top border */
+.footer-bottom-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  margin-top: 2rem;       /* more visual separation from body */
+  padding-top: 2rem;      /* taller top breathing room */
+  padding-bottom: 2rem;   /* taller bottom breathing room */
+}
+.footer-bottom-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+@media (min-width: 640px) {
+  .footer-bottom-inner {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* ================================================
+   ENHANCED NAV LINKS — gold underline grows from center
+   ================================================ */
+.nav-link-enhanced {
+  position: relative;
+  color: var(--color-mocha);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  padding-bottom: 2px;
+}
+.nav-link-enhanced::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--color-gold);
+  border-radius: 1px;
+  transform: translateX(-50%);
+  transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-link-enhanced:hover {
+  color: var(--color-gold);
+}
+.nav-link-enhanced:hover::after,
+.nav-link-enhanced.nav-link-active::after {
+  width: 100%;
+}
+.nav-link-active {
+  color: var(--color-gold) !important;
+}
+
+/* ================================================
+   SECTION CLIP-PATH REVEAL UTILITY
+   ================================================ */
+.clip-reveal {
+  display: inline-block;
+}
+
+/* ================================================
+   MOBILE MOTION OPTIMIZATION
+   ================================================ */
+/* On mobile, reduce y offsets to avoid jank */
+@media (max-width: 768px) {
+  .mobile-fade-up {
+    --motion-y: 20px;
+  }
+}
+
+/* ================================================
+   ALTERNATE SECTION BACKGROUNDS (rhythm)
+   ================================================ */
+.section-alt-1 {
+  background-color: #FDF6EE; /* cream */
+}
+.section-alt-2 {
+  background-color: #faf0e8; /* dusty rose tint */
+}
+.section-alt-3 {
+  background-color: #f5ebe0; /* slightly deeper rose */
+}
+
+/* ================================================
+   ENHANCED CARD HOVER (Framer Motion complement)
+   ================================================ */
+.card-shadow-hover {
+  transition: box-shadow 0.3s ease;
+}
+.card-shadow-hover:hover {
+  box-shadow: 0 20px 40px rgba(59, 31, 20, 0.15);
+}
+
+/* ================================================
+   SVG DIAGONAL SECTION DIVIDER
+   ================================================ */
+.section-divider-diagonal {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+.section-divider-diagonal svg {
+  display: block;
+  width: calc(100% + 1px);
+  height: 60px;
+}
+
+/* ================================================
+   SCREEN-READER ONLY UTILITY
+   ================================================ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ================================================
+   REDUCED MOTION — global accessibility guard
+   Disables all CSS animations & transitions for
+   users with vestibular / motion sensitivity prefs.
+   Framer Motion respects useReducedMotion() hook.
+   ================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

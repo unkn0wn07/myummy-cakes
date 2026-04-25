@@ -1,0 +1,48 @@
+# MYummy Cakes Tech Stack
+
+## Type: Mostly Static Showcase Web Application
+## Purpose: Public-facing showcase — orders directed to Zomato & Swiggy
+
+---
+
+### Frontend (Client)
+- **Framework**: React 19 (JavaScript)
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS (with Forms and Aspect Ratio plugins)
+- **Routing**: React Router DOM
+- **Animations**: Framer Motion
+- **Lottie Animations**: lottie-react (social icons, WhatsApp FAB)
+- **Icons**: Lucide React
+- **HTTP Client**: Axios (contact form only)
+- **Form Handling**: React Hook Form + Zod (Validation)
+- **UI Components**: Swiper (Sliders), React Image Gallery, React Hot Toast
+- **Data**: Fully hardcoded in `client/src/data/products.js` — no database needed
+
+### Backend (Server)
+- **Runtime**: Node.js
+- **Framework**: Express.js
+- **Purpose**: Contact form email relay only (no database)
+- **Email**: Nodemailer (Gmail)
+- **Security**: Helmet (HTTP headers), Express Rate Limit, CORS
+- **Logging**: Morgan
+
+### Development Tools
+- **Linting**: ESLint
+- **Environment Management**: Dotenv
+- **Process Manager**: Nodemon (Development)
+- **CSS Processing**: PostCSS, Autoprefixer
+
+---
+
+### Configuration
+- **Contact form recipient**: Set CONTACT_EMAIL in server/.env
+- **Gmail credentials**: Set EMAIL_USER and EMAIL_PASS in server/.env
+
+---
+
+### Removed (no longer needed)
+- ~~MongoDB / Mongoose~~ — data is hardcoded
+- ~~Stripe~~ — no payments
+- ~~bcryptjs / jsonwebtoken~~ — no auth
+- ~~multer / cloudinary~~ — no file uploads
+- ~~Zustand~~ — no global state needed

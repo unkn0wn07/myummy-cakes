@@ -96,7 +96,7 @@ function SocialLottieIcon({ label, href, animationData }) {
 export default function Footer() {
 
   return (
-    <footer role="contentinfo" className="bg-mocha-500 text-cream-300">
+    <footer role="contentinfo" className="bg-mocha-500 text-cream-300" style={{ borderRadius: '16px 16px 0 0' }}>
       {/* Main Footer Body */}
       <div className="footer-container" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
         <div className="footer-grid">

@@ -93,12 +93,12 @@ export default function ProductDetailPage() {
 
             {/* Thumbnails */}
             {product.images?.length > 1 && (
-              <div className="grid grid-cols-4 gap-2">
+              <div className="thumbnail-slider">
                 {product.images.map((img, i) => (
                   <button
                     key={i}
                     onClick={() => setActiveImage(i)}
-                    className={`rounded-xl overflow-hidden border-2 transition-all ${
+                    className={`thumbnail-slide-item rounded-xl overflow-hidden border-2 transition-all ${
                       activeImage === i ? 'border-gold-400 shadow-gold' : 'border-transparent hover:border-rose-200'
                     }`}
                     aria-label={`View image ${i + 1}`}

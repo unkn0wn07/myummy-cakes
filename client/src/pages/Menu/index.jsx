@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { X, Search } from 'lucide-react';
 import { PRODUCTS } from '../../data/products';
 import ProductCard from '../../components/ui/ProductCard';
 
@@ -90,27 +90,34 @@ export default function MenuPage() {
       </div>
 
       <div className="container-custom py-10">
-        {/* Search bar */}
-        <div className="mb-8">
-          <form onSubmit={handleSearch} className="relative max-w-lg">
+        {/* Search bar — centered 15%/70%/15% layout */}
+        <div className="menu-search-wrapper">
+          <form onSubmit={handleSearch} className="menu-search-form" role="search">
             <input
               type="text"
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
               placeholder="Search cakes, flavours..."
-              className="form-input pl-4 pr-10"
+              className="form-input menu-search-input"
               aria-label="Search cakes"
             />
             {searchInput && (
               <button
                 type="button"
                 onClick={() => { setSearchInput(''); setSearch(''); }}
-                className="absolute right-3 top-1/2 -translate-y-1/2"
+                className="menu-search-clear"
                 aria-label="Clear search"
               >
                 <X className="w-4 h-4 text-mocha-300" />
               </button>
             )}
+            <button
+              type="submit"
+              className="menu-search-icon-btn"
+              aria-label="Submit search"
+            >
+              <Search className="w-5 h-5" />
+            </button>
           </form>
         </div>
 

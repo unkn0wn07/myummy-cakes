@@ -40,7 +40,7 @@ export default function Header() {
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
         style={{
-          background: scrolled ? 'rgba(253,246,238,0.97)' : 'transparent',
+          background: scrolled ? 'rgba(253,246,238,0.97)' : 'rgba(253,246,238,0.97)', // ← Always show background
           backdropFilter: scrolled ? 'blur(14px)' : 'none',
           boxShadow: scrolled ? '0 2px 24px rgba(59,31,20,0.09)' : 'none',
           transition: 'background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease',
@@ -94,7 +94,7 @@ export default function Header() {
                 aria-label="Search"
                 style={{ color: 'var(--color-mocha)' }}
               >
-                              {/* Themed search icon — animates on toggle */}
+                {/* Themed search icon — animates on toggle */}
                 <motion.svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"

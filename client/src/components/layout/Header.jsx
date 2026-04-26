@@ -43,9 +43,9 @@ export default function Header() {
           background: scrolled ? 'rgba(253,246,238,0.97)' : 'transparent',
           backdropFilter: scrolled ? 'blur(14px)' : 'none',
           boxShadow: scrolled ? '0 2px 24px rgba(59,31,20,0.09)' : 'none',
-          transition: 'background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease',
-          borderBottomLeftRadius: '1.5rem',
-          borderBottomRightRadius: '1.5rem',
+          transition: 'background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease, border-radius 0.35s ease',
+          borderBottomLeftRadius: scrolled ? '1.5rem' : '0',
+          borderBottomRightRadius: scrolled ? '1.5rem' : '0',
         }}
       >
         <div className="container-custom">
@@ -94,7 +94,7 @@ export default function Header() {
                 aria-label="Search"
                 style={{ color: 'var(--color-mocha)' }}
               >
-                              {/* Themed search icon — animates on toggle */}
+                {/* Themed search icon — animates on toggle */}
                 <motion.svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"

@@ -11,7 +11,11 @@ export const PRODUCTS = [
     category: 'birthday',
     description: 'Rich velvety chocolate layers with ganache filling and silky buttercream.',
     longDescription: 'Our signature Classic Chocolate Truffle is a masterpiece of indulgence. Three layers of moist chocolate sponge are filled with a decadent dark chocolate ganache and finished with a silky chocolate buttercream that melts on your tongue.',
-    images: ['https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=80'],
+    images: [
+      'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=80&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=80&h=800&fit=crop&auto=format',
+      'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=80&h=800&fit=crop&fm=webp'
+    ],
     weightOptions: [{ label: '500g', price: 650 }, { label: '1kg', price: 1199 }, { label: '2kg', price: 2299 }],
     flavours: ['Chocolate', 'Dark Chocolate'],
     badge: 'Bestseller',
@@ -30,7 +34,11 @@ export const PRODUCTS = [
     category: 'birthday',
     description: 'Light vanilla sponge with fresh strawberry compote and whipped cream.',
     longDescription: 'A dreamy celebration cake layered with airy vanilla sponge, house-made strawberry compote, and clouds of fresh whipped cream. Topped with whole strawberries for a stunning finish.',
-    images: ['https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=800&q=80'],
+    images: [
+      'https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=800&q=80&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=800&q=80&h=800&fit=crop&auto=format',
+      'https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=800&q=80&h=800&fit=crop&fm=webp'
+    ],
     weightOptions: [{ label: '500g', price: 599 }, { label: '1kg', price: 1099 }],
     flavours: ['Vanilla', 'Strawberry'],
     rating: 4.8,
@@ -48,7 +56,11 @@ export const PRODUCTS = [
     category: 'anniversary',
     description: 'Stunning crimson sponge with classic cream cheese frosting.',
     longDescription: 'The timeless Red Velvet cake with its vibrant crimson crumb and signature cream cheese frosting. A showstopper for anniversaries, romantic dinners, and special occasions.',
-    images: ['https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800&q=80'],
+    images: [
+      'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800&q=80&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800&q=80&h=800&fit=crop&auto=format',
+      'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800&q=80&h=800&fit=crop&fm=webp'
+    ],
     weightOptions: [{ label: '500g', price: 699 }, { label: '1kg', price: 1299 }, { label: '2kg', price: 2499 }],
     flavours: ['Red Velvet'],
     badge: 'Popular',
@@ -67,7 +79,11 @@ export const PRODUCTS = [
     category: 'wedding',
     description: 'Showstopping 3-tier wedding masterpiece with Swiss meringue buttercream.',
     longDescription: 'A grand three-tier celebration masterpiece draped in silky Swiss meringue buttercream and adorned with hand-crafted sugar florals. Every tier is individually baked and assembled with precision for your perfect day.',
-    images: ['https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=800&q=80'],
+    images: [
+      'https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=800&q=80&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=800&q=80&h=800&fit=crop&auto=format',
+      'https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=800&q=80&h=800&fit=crop&fm=webp'
+    ],
     weightOptions: [{ label: '3kg', price: 5999 }, { label: '5kg', price: 8999 }],
     flavours: ['Vanilla Almond'],
     badge: 'Premium',
@@ -86,7 +102,11 @@ export const PRODUCTS = [
     category: 'seasonal',
     description: 'Alphonso mango mousse on coconut sponge, topped with fresh mango coulis.',
     longDescription: 'A tropical celebration of the king of fruits — Alphonso mango mousse set atop a light coconut sponge, finished with a vibrant fresh mango coulis. Available only during mango season.',
-    images: ['https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=800&q=80'],
+    images: [
+      'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=800&q=80&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=800&q=80&h=800&fit=crop&auto=format',
+      'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=800&q=80&h=800&fit=crop&fm=webp'
+    ],
     weightOptions: [{ label: '500g', price: 749 }, { label: '1kg', price: 1399 }],
     flavours: ['Alphonso Mango'],
     badge: 'Seasonal',
@@ -105,7 +125,11 @@ export const PRODUCTS = [
     category: 'cupcakes',
     description: 'A gorgeous box of 12 handcrafted cupcakes in assorted flavours.',
     longDescription: 'Twelve individually handcrafted cupcakes, each piped with a different flavoured buttercream. The perfect gift box for any occasion — birthdays, office parties, or just because.',
-    images: ['https://images.unsplash.com/photo-1587668178277-295251f900ce?w=800&q=80'],
+    images: [
+      'https://images.unsplash.com/photo-1587668178277-295251f900ce?w=800&q=80&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1587668178277-295251f900ce?w=800&q=80&h=800&fit=crop&auto=format',
+      'https://images.unsplash.com/photo-1587668178277-295251f900ce?w=800&q=80&h=800&fit=crop&fm=webp'
+    ],
     weightOptions: [{ label: '12 pcs', price: 899 }, { label: '24 pcs', price: 1699 }],
     flavours: ['Assorted'],
     badge: 'Gift Ready',
@@ -124,7 +148,11 @@ export const PRODUCTS = [
     category: 'birthday',
     description: 'Cookie butter cream on spiced sponge with crushed Lotus biscuits.',
     longDescription: 'A cult favourite. Warm spiced sponge layered with velvety Biscoff cookie butter cream and finished with a generous cascade of crushed Lotus biscuits. Dangerously addictive.',
-    images: ['https://images.unsplash.com/photo-1618426703623-c1b335803e07?w=800&q=80'],
+    images: [
+      'https://images.unsplash.com/photo-1618426703623-c1b335803e07?w=800&q=80&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1618426703623-c1b335803e07?w=800&q=80&h=800&fit=crop&auto=format',
+      'https://images.unsplash.com/photo-1618426703623-c1b335803e07?w=800&q=80&h=800&fit=crop&fm=webp'
+    ],
     weightOptions: [{ label: '500g', price: 849 }, { label: '1kg', price: 1549 }],
     flavours: ['Biscoff'],
     badge: 'Trending',
@@ -143,7 +171,11 @@ export const PRODUCTS = [
     category: 'birthday',
     description: 'Soft butterscotch sponge with caramel praline buttercream. 100% egg-free.',
     longDescription: 'Our most popular eggless creation. A soft, fluffy butterscotch sponge sandwiched with rich caramel praline buttercream. 100% egg-free without compromising on taste or texture.',
-    images: ['https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=800&q=80'],
+    images: [
+      'https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=800&q=80&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=800&q=80&h=800&fit=crop&auto=format',
+      'https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=800&q=80&h=800&fit=crop&fm=webp'
+    ],
     weightOptions: [{ label: '500g', price: 599 }, { label: '1kg', price: 1099 }],
     flavours: ['Butterscotch'],
     badge: 'Eggless',
@@ -162,7 +194,11 @@ export const PRODUCTS = [
     category: 'other',
     description: 'New York-style baked cheesecake with fresh blueberry compote.',
     longDescription: 'A dense, creamy New York-style baked cheesecake on a buttery digestive biscuit base, crowned with a glossy house-made blueberry and mixed berry compote.',
-    images: ['https://images.unsplash.com/photo-1562777717-dc6984f65a63?w=800&q=80'],
+    images: [
+      'https://images.unsplash.com/photo-1562777717-dc6984f65a63?w=800&q=80&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1562777717-dc6984f65a63?w=800&q=80&h=800&fit=crop&auto=format',
+      'https://images.unsplash.com/photo-1562777717-dc6984f65a63?w=800&q=80&h=800&fit=crop&fm=webp'
+    ],
     weightOptions: [{ label: '500g', price: 799 }, { label: '1kg', price: 1499 }],
     flavours: ['Blueberry', 'Mixed Berry'],
     rating: 4.8,
@@ -180,7 +216,11 @@ export const PRODUCTS = [
     category: 'anniversary',
     description: 'Artistically sculpted fondant cake with hand-crafted sugar roses.',
     longDescription: 'An edible work of art. Our bakers hand-craft every sugar rose and fondant petal to create a bespoke floral arrangement on this elegant anniversary cake. Each one is unique.',
-    images: ['https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=80'],
+    images: [
+      'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=80&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=80&h=800&fit=crop&auto=format',
+      'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=80&h=800&fit=crop&fm=webp'
+    ],
     weightOptions: [{ label: '1kg', price: 1899 }, { label: '2kg', price: 3499 }],
     flavours: ['Vanilla Rose'],
     badge: 'Artisan',
@@ -199,7 +239,11 @@ export const PRODUCTS = [
     category: 'other',
     description: 'Individual gooey chocolate lava cakes in cute glass jars.',
     longDescription: 'Four individually portioned dark chocolate lava cakes served in charming glass jars. Break the top and watch the molten chocolate flow. Perfect gifting option.',
-    images: ['https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&q=80'],
+    images: [
+      'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&q=80&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&q=80&h=800&fit=crop&auto=format',
+      'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&q=80&h=800&fit=crop&fm=webp'
+    ],
     weightOptions: [{ label: '4 jars', price: 699 }, { label: '8 jars', price: 1299 }],
     flavours: ['Dark Chocolate'],
     badge: 'Gift Ready',
@@ -218,7 +262,11 @@ export const PRODUCTS = [
     category: 'birthday',
     description: 'Crack open this beautiful exterior to reveal colourful candies inside!',
     longDescription: 'The showstopper that causes gasps at every party. A beautifully decorated exterior that, when cut, reveals a cascade of colourful candies and sprinkles. Pure magic.',
-    images: ['https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=800&q=80'],
+    images: [
+      'https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=800&q=80&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=800&q=80&h=800&fit=crop&auto=format',
+      'https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=800&q=80&h=800&fit=crop&fm=webp'
+    ],
     weightOptions: [{ label: '1.5kg', price: 2199 }, { label: '2.5kg', price: 3499 }],
     flavours: ['Vanilla', 'Chocolate'],
     badge: 'Party Hit',

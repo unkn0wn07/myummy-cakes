@@ -47,13 +47,13 @@ export default function ProductDetailPage() {
                         transition={{ duration: 0.5 }}
                     >
                         {/* Main image */}
-                        <div className="relative rounded-3xl overflow-hidden shadow-card-hover bg-white mb-3">
+                        <div className="relative rounded-3xl overflow-hidden shadow-card-hover bg-white mb-3 aspect-square">
                             <AnimatePresence mode="wait">
                                 <motion.img
                                     key={activeImage}
                                     src={product.images?.[activeImage] || product.images?.[0]}
                                     alt={`${product.name} - view ${activeImage + 1}`}
-                                    className="w-full aspect-square object-cover"
+                                    className="w-full h-full object-cover"
                                     initial={{ opacity: 0, scale: 1.02 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0 }}
@@ -93,16 +93,16 @@ export default function ProductDetailPage() {
 
                         {/* Thumbnails */}
                         {product.images?.length > 1 && (
-                            <div className="grid grid-cols-4 gap-2">
+                            <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
                                 {product.images.map((img, i) => (
                                     <button
                                         key={i}
                                         onClick={() => setActiveImage(i)}
-                                        className={`rounded-xl overflow-hidden border-2 transition-all ${activeImage === i ? 'border-gold-400 shadow-gold' : 'border-transparent hover:border-rose-200'
+                                        className={`flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden border-2 transition-all ${activeImage === i ? 'border-gold-400 shadow-gold' : 'border-transparent hover:border-rose-200'
                                             }`}
                                         aria-label={`View image ${i + 1}`}
                                     >
-                                        <img src={img} alt="" className="w-full aspect-square object-cover" />
+                                        <img src={img} alt="" className="w-full h-full object-cover" />
                                     </button>
                                 ))}
                             </div>

@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { X, Search } from 'lucide-react';
 import { PRODUCTS } from '../../data/products';
 import ProductCard from '../../components/ui/ProductCard';
 
@@ -91,26 +91,35 @@ export default function MenuPage() {
 
       <div className="container-custom py-10">
         {/* Search bar */}
-        <div className="mb-8">
-          <form onSubmit={handleSearch} className="relative max-w-lg">
+        <div className="mb-8 mt-8">
+          <form onSubmit={handleSearch} className="relative w-full mx-auto">
             <input
               type="text"
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
               placeholder="Search cakes, flavours..."
-              className="form-input pl-4 pr-10"
+              className="form-input pl-4 pr-12"
               aria-label="Search cakes"
             />
-            {searchInput && (
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2">
+              {searchInput && (
+                <button
+                  type="button"
+                  onClick={() => { setSearchInput(''); setSearch(''); }}
+                  className="text-mocha-300 hover:text-mocha-500 transition-colors"
+                  aria-label="Clear search"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
               <button
-                type="button"
-                onClick={() => { setSearchInput(''); setSearch(''); }}
-                className="absolute right-3 top-1/2 -translate-y-1/2"
-                aria-label="Clear search"
+                type="submit"
+                className="text-mocha-400 hover:text-mocha-500 transition-colors"
+                aria-label="Search"
               >
-                <X className="w-4 h-4 text-mocha-300" />
+                <Search className="w-4 h-4" />
               </button>
-            )}
+            </div>
           </form>
         </div>
 

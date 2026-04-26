@@ -1,25 +1,25 @@
 import { useState, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Search } from 'lucide-react';
+import { X } from 'lucide-react';
 import { PRODUCTS } from '../../data/products';
 import ProductCard from '../../components/ui/ProductCard';
 
 const CATEGORIES = [
-  { value: 'all',         label: '✨ All' },
-  { value: 'birthday',   label: '🎂 Birthday' },
-  { value: 'wedding',    label: '💍 Wedding' },
-  { value: 'cupcakes',   label: '🧁 Cupcakes' },
-  { value: 'seasonal',   label: '🌸 Seasonal' },
-  { value: 'anniversary',label: '💕 Anniversary' },
-  { value: 'other',      label: '🍰 Other' },
+  { value: 'all', label: '✨ All' },
+  { value: 'birthday', label: '🎂 Birthday' },
+  { value: 'wedding', label: '💍 Wedding' },
+  { value: 'cupcakes', label: '🧁 Cupcakes' },
+  { value: 'seasonal', label: '🌸 Seasonal' },
+  { value: 'anniversary', label: '💕 Anniversary' },
+  { value: 'other', label: '🍰 Other' },
 ];
 
 export default function MenuPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchInput, setSearchInput] = useState(searchParams.get('search') || '');
-  const [search, setSearch]           = useState(searchParams.get('search') || '');
-  const [category, setCategory]       = useState(searchParams.get('category') || 'all');
+  const [search, setSearch] = useState(searchParams.get('search') || '');
+  const [category, setCategory] = useState(searchParams.get('category') || 'all');
 
   // Filter directly from hardcoded data — instant, no loading state needed
   const products = useMemo(() => {
@@ -90,44 +90,28 @@ export default function MenuPage() {
       </div>
 
       <div className="container-custom py-10">
-        {/* Search bar — centered, 15/70/15 layout, top spacing */}
-        <div className="mb-8 pt-4" style={{ display: 'flex', justifyContent: 'center' }}>
-          <div style={{ width: '70%', maxWidth: '900px' }}>
-            <form onSubmit={handleSearch} className="relative" role="search">
-              <label htmlFor="menu-search" className="sr-only">Search cakes and flavours</label>
-              <input
-                id="menu-search"
-                type="text"
-                value={searchInput}
-                onChange={(e) => setSearchInput(e.target.value)}
-                placeholder="Search cakes, flavours..."
-                className="form-input"
-                style={{ paddingLeft: '1rem', paddingRight: searchInput ? '5rem' : '3rem' }}
-                aria-label="Search cakes"
-              />
-              {/* Clear button — only shown when there is text */}
-              {searchInput && (
-                <button
-                  type="button"
-                  onClick={() => { setSearchInput(''); setSearch(''); }}
-                  className="absolute top-1/2 -translate-y-1/2"
-                  style={{ right: '2.75rem' }}
-                  aria-label="Clear search"
-                >
-                  <X className="w-4 h-4 text-mocha-300" />
-                </button>
-              )}
-              {/* Search submit icon on the right */}
+        {/* Search bar */}
+        <div className="mb-8">
+          <form onSubmit={handleSearch} className="relative max-w-lg">
+            <input
+              type="text"
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+              placeholder="Search cakes, flavours..."
+              className="form-input pl-4 pr-10"
+              aria-label="Search cakes"
+            />
+            {searchInput && (
               <button
-                type="submit"
-                className="absolute top-1/2 -translate-y-1/2"
-                style={{ right: '1rem' }}
-                aria-label="Submit search"
+                type="button"
+                onClick={() => { setSearchInput(''); setSearch(''); }}
+                className="absolute right-3 top-1/2 -translate-y-1/2"
+                aria-label="Clear search"
               >
-                <Search className="w-4 h-4" style={{ color: 'var(--color-gold)' }} />
+                <X className="w-4 h-4 text-mocha-300" />
               </button>
-            </form>
-          </div>
+            )}
+          </form>
         </div>
 
         {/* Category Tabs */}
@@ -138,11 +122,10 @@ export default function MenuPage() {
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               onClick={() => handleCategory(cat.value)}
-              className={`flex-shrink-0 px-5 py-2.5 rounded-full text-sm font-semibold transition-all ${
-                category === cat.value
+              className={`flex-shrink-0 px-5 py-2.5 rounded-full text-sm font-semibold transition-all ${category === cat.value
                   ? 'bg-mocha-500 text-cream-300 shadow-lg'
                   : 'bg-white text-mocha-400 hover:bg-rose-100 shadow-sm'
-              }`}
+                }`}
             >
               {cat.label}
             </motion.button>

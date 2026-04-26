@@ -90,35 +90,44 @@ export default function MenuPage() {
       </div>
 
       <div className="container-custom py-10">
-        {/* Search bar — centered 15%/70%/15% layout */}
-        <div className="menu-search-wrapper">
-          <form onSubmit={handleSearch} className="menu-search-form" role="search">
-            <input
-              type="text"
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-              placeholder="Search cakes, flavours..."
-              className="form-input menu-search-input"
-              aria-label="Search cakes"
-            />
-            {searchInput && (
+        {/* Search bar — centered, 15/70/15 layout, top spacing */}
+        <div className="mb-8 pt-4" style={{ display: 'flex', justifyContent: 'center' }}>
+          <div style={{ width: '70%', maxWidth: '900px' }}>
+            <form onSubmit={handleSearch} className="relative" role="search">
+              <label htmlFor="menu-search" className="sr-only">Search cakes and flavours</label>
+              <input
+                id="menu-search"
+                type="text"
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
+                placeholder="Search cakes, flavours..."
+                className="form-input"
+                style={{ paddingLeft: '1rem', paddingRight: searchInput ? '5rem' : '3rem' }}
+                aria-label="Search cakes"
+              />
+              {/* Clear button — only shown when there is text */}
+              {searchInput && (
+                <button
+                  type="button"
+                  onClick={() => { setSearchInput(''); setSearch(''); }}
+                  className="absolute top-1/2 -translate-y-1/2"
+                  style={{ right: '2.75rem' }}
+                  aria-label="Clear search"
+                >
+                  <X className="w-4 h-4 text-mocha-300" />
+                </button>
+              )}
+              {/* Search submit icon on the right */}
               <button
-                type="button"
-                onClick={() => { setSearchInput(''); setSearch(''); }}
-                className="menu-search-clear"
-                aria-label="Clear search"
+                type="submit"
+                className="absolute top-1/2 -translate-y-1/2"
+                style={{ right: '1rem' }}
+                aria-label="Submit search"
               >
-                <X className="w-4 h-4 text-mocha-300" />
+                <Search className="w-4 h-4" style={{ color: 'var(--color-gold)' }} />
               </button>
-            )}
-            <button
-              type="submit"
-              className="menu-search-icon-btn"
-              aria-label="Submit search"
-            >
-              <Search className="w-5 h-5" />
-            </button>
-          </form>
+            </form>
+          </div>
         </div>
 
         {/* Category Tabs */}

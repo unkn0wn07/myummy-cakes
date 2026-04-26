@@ -43,8 +43,9 @@ export default function Header() {
           background: scrolled ? 'rgba(253,246,238,0.97)' : 'transparent',
           backdropFilter: scrolled ? 'blur(14px)' : 'none',
           boxShadow: scrolled ? '0 2px 24px rgba(59,31,20,0.09)' : 'none',
-          borderRadius: scrolled ? '0 0 16px 16px' : '0',
-          transition: 'background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease, border-radius 0.35s ease',
+          transition: 'background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease',
+          borderBottomLeftRadius: '1.5rem',
+          borderBottomRightRadius: '1.5rem',
         }}
       >
         <div className="container-custom">

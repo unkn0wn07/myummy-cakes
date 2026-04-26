@@ -46,15 +46,22 @@ export default function ProductDetailPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            {/* Main image */}
-            <div className="relative rounded-3xl overflow-hidden shadow-card-hover bg-white mb-3">
+            {/* Square main image */}
+            <div
+              className="relative overflow-hidden shadow-card-hover bg-white mb-4"
+              style={{
+                borderRadius: '1.5rem',
+                aspectRatio: '1 / 1',
+                width: '100%',
+              }}
+            >
               <AnimatePresence mode="wait">
                 <motion.img
                   key={activeImage}
                   src={product.images?.[activeImage] || product.images?.[0]}
                   alt={`${product.name} - view ${activeImage + 1}`}
-                  className="w-full aspect-square object-cover"
-                  initial={{ opacity: 0, scale: 1.02 }}
+                  className="w-full h-full object-cover"
+                  initial={{ opacity: 0, scale: 1.04 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.3 }}
@@ -69,41 +76,52 @@ export default function ProductDetailPage() {
               >
                 <Share2 className="w-4 h-4 text-mocha-500" />
               </button>
-
-              {/* Carousel arrows (only if multiple images) */}
-              {product.images?.length > 1 && (
-                <>
-                  <button
-                    onClick={() => setActiveImage(i => (i > 0 ? i - 1 : product.images.length - 1))}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-sm hover:bg-white"
-                    aria-label="Previous image"
-                  >
-                    <ChevronLeft className="w-4 h-4 text-mocha-500" />
-                  </button>
-                  <button
-                    onClick={() => setActiveImage(i => (i < product.images.length - 1 ? i + 1 : 0))}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-sm hover:bg-white"
-                    aria-label="Next image"
-                  >
-                    <ChevronRight className="w-4 h-4 text-mocha-500" />
-                  </button>
-                </>
-              )}
             </div>
 
-            {/* Thumbnails */}
+            {/* Thumbnail slider — always visible when there are multiple images */}
             {product.images?.length > 1 && (
-              <div className="thumbnail-slider">
+              <div
+                role="tablist"
+                aria-label="Product image gallery"
+                style={{
+                  display: 'flex',
+                  gap: '0.5rem',
+                  overflowX: 'auto',
+                  paddingBottom: '0.5rem',
+                  scrollbarWidth: 'thin',
+                  scrollbarColor: 'var(--color-rose) transparent',
+                }}
+              >
                 {product.images.map((img, i) => (
                   <button
                     key={i}
+                    role="tab"
+                    aria-selected={activeImage === i}
                     onClick={() => setActiveImage(i)}
-                    className={`thumbnail-slide-item rounded-xl overflow-hidden border-2 transition-all ${
-                      activeImage === i ? 'border-gold-400 shadow-gold' : 'border-transparent hover:border-rose-200'
-                    }`}
+                    style={{
+                      flexShrink: 0,
+                      width: '72px',
+                      height: '72px',
+                      borderRadius: '0.75rem',
+                      overflow: 'hidden',
+                      border: activeImage === i
+                        ? '2.5px solid var(--color-gold)'
+                        : '2px solid transparent',
+                      boxShadow: activeImage === i
+                        ? '0 0 0 1px var(--color-gold), 0 4px 12px rgba(201,168,76,0.25)'
+                        : '0 2px 8px rgba(59,31,20,0.08)',
+                      transition: 'border-color 0.2s, box-shadow 0.2s',
+                      padding: 0,
+                      background: 'none',
+                      cursor: 'pointer',
+                    }}
                     aria-label={`View image ${i + 1}`}
                   >
-                    <img src={img} alt="" className="w-full aspect-square object-cover" />
+                    <img
+                      src={img}
+                      alt={`${product.name} thumbnail ${i + 1}`}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    />
                   </button>
                 ))}
               </div>

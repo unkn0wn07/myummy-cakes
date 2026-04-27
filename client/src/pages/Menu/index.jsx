@@ -61,7 +61,7 @@ export default function MenuPage() {
   return (
     <div className="bg-cream-300 min-h-screen">
       {/* Page Header */}
-      <div className="bg-gradient-to-br from-cream-300 to-rose-100 py-14">
+      <div className="bg-gradient-to-br from-cream-300 to-rose-100 py-14 pt-20 md:pt-24">
         <div className="container-custom text-center">
           <motion.p
             initial={{ opacity: 0, y: 20 }}

@@ -59,7 +59,7 @@ export default function AboutPage() {
   return (
     <div className="bg-cream-300 overflow-x-hidden">
       {/* Hero */}
-      <section className="relative py-20 overflow-hidden" style={{ background: 'linear-gradient(135deg, #3B1F14 0%, #5a3020 100%)' }}>
+      <section className="relative py-20 pt-24 md:pt-28 overflow-hidden" style={{ background: 'linear-gradient(135deg, #3B1F14 0%, #5a3020 100%)' }}>
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-10 right-20 w-80 h-80 bg-gold-400 rounded-full blur-3xl" />
           <div className="absolute bottom-10 left-10 w-60 h-60 bg-rose-300 rounded-full blur-3xl" />

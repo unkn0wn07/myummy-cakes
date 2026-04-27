@@ -40,7 +40,7 @@ export default function Header() {
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
         style={{
-          background: scrolled ? 'rgba(255,255,255,0.98)' : 'rgba(255,255,255,0.98)', // ← White background
+          background: scrolled ? 'rgba(255,248,250,0.9)' : 'rgba(255,248,250,0.9)', // ← Lighter rose background
           backdropFilter: scrolled ? 'blur(14px)' : 'none',
           boxShadow: scrolled ? '0 4px 20px rgba(59,31,20,0.12)' : '0 2px 12px rgba(59,31,20,0.08)', // ← Increased elevation
           transition: 'background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease',
@@ -215,9 +215,6 @@ export default function Header() {
           )}
         </AnimatePresence>
       </motion.header>
-
-      {/* Spacer to push content below fixed header */}
-      <div className="h-16 md:h-20" />
     </>
   );
 }

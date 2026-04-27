@@ -27,7 +27,7 @@ export default function ProductDetailPage() {
     return (
         <div className="bg-cream-300 min-h-screen">
             {/* Breadcrumb */}
-            <div className="container-custom py-4">
+            <div className="container-custom py-4 pt-20 md:pt-24">
                 <nav className="text-sm text-mocha-300" aria-label="Breadcrumb">
                     <Link to="/" className="hover:text-gold-400 transition-colors">Home</Link>
                     <span className="mx-2">/</span>

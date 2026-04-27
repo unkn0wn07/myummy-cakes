@@ -155,7 +155,7 @@ export default function HomePage() {
       <section
         ref={heroRef}
         aria-label="Hero — Artisan Cakes by MYummy"
-        className="relative min-h-[90vh] flex items-center overflow-hidden grain-overlay"
+        className="relative min-h-[90vh] flex items-center overflow-hidden grain-overlay pt-16 md:pt-20"
         style={{ background: 'linear-gradient(135deg, #FDF6EE 0%, #f7e8d8 40%, #f0d9c0 100%)' }}
       >
         {/* Decorative blobs */}

@@ -40,9 +40,9 @@ export default function Header() {
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
         style={{
-          background: scrolled ? 'rgba(253,246,238,0.97)' : 'rgba(253,246,238,0.97)', // ← Always show background
+          background: scrolled ? 'rgba(255,255,255,0.98)' : 'rgba(255,255,255,0.98)', // ← White background
           backdropFilter: scrolled ? 'blur(14px)' : 'none',
-          boxShadow: scrolled ? '0 2px 24px rgba(59,31,20,0.09)' : 'none',
+          boxShadow: scrolled ? '0 4px 20px rgba(59,31,20,0.12)' : '0 2px 12px rgba(59,31,20,0.08)', // ← Increased elevation
           transition: 'background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease',
           borderBottomLeftRadius: '1.5rem',
           borderBottomRightRadius: '1.5rem',
